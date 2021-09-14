@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .container {
+        margin-top: 115px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        {% for object in items %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                {% comment %} <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXOhw7QLtMc3U9ty29xDN6hHxs7cBXyzpIUA&usqp=CAU"
+                    class="card-img-top" alt="..."> {% endcomment %}
+
+                <img src= {{ object.image.url }} class="card-img-top" height=285>
+                
+
+
+
+                <div class="card-body">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <a href="">
+                                <span class=""style="color:black;">{{object.get_category_display}}</span>
+                            </a>
+
+                        </div>
+                        <h5>
+                  <strong>
+                    <a href="#"style="color:black;">{{ object.title }}
+                    {% if object.get_label_display == "primary" %}
+                      <span style="color:red;margin-left: 20px;">SALE</span> 
+                    {% elif object.get_label_display == "secondary" %}
+                      <span style="color:green;margin-left: 20px;">BESTSELLER</span>
+                   
+                    {% else %}
+                      <span style="color:blue;margin-left: 20px;">NEW</span>
+                    {% endif %} 
+                    </a>
+                  </strong>
+                </h5>
+                        <p class="lead">
+                            {% if object.discount_price %}
+                            <span class="mr-1">
+                                <del>₹{{object.price}}</del>
+                            </span>
+                            <span>₹{{object.discount_price}}</span>
+                            {% else %}
+                            <span>₹{{ object.price }}</span>
+                            {% endif %}
+                        </p>
+                        <p class="lead font-weight-bold">Description</p>
+                        <p>{{object.description}}</p>
+
+
+
+             <a href="{% url 'add_to_cart' object.id %}"class="btn btn-primary btn-md my-0 p">
+                Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+
+
+
+                        <a href="{% url 'remove_from_cart' object.id %}" class="btn btn-danger btn-md my-3 p">Remove from cart
+                            <i class="fas fa-shopping-cart ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

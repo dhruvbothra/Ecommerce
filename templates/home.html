@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+    <style>
+    section{
+    background-image:url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+    height:100vh;
+    }
+    .txt{
+          background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.7); 
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 54%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width:40%;
+  height:60%;
+  padding: 50px;
+  font-size:50px;
+  text-align: center;
+  }
+  .btns{
+    text-align:center
+  }
+  .btn{
+    padding: 6px;
+    font-size: 25px;
+    margin-right: 35px;
+  }
+
+    </style>
+
+    <section >
+    <div class="txt">
+    New<br> Products<br>Great<br> Deals !!!!<br>
+    <div class="btns">
+      <a href="/male/" class="btn btn-secondary" role="button">Male</a>
+      <a href="/female/" class="btn btn-secondary" role="button">Female</a>
+      <a href="/kids/" class="btn btn-secondary" role="button">Kids</a>
+</div>
+    </div>
+
+
+    </section>
+
+    {% endblock content %}
+
