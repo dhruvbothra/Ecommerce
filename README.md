@@ -1,2 +1,2 @@
 # Ecommerce
-A demo ecommerce webite. It is hosted using white noise anf heroku.
+A demo ecommerce website. It is hosted using white-noise and heroku.
